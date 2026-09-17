@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Cognigy Webchat</title>
-  <style>
-	/* Three styles make Webchat full-screen: */
-	/*
-	[data-cognigy-webchat-root] [data-cognigy-webchat-toggle].webchat-toggle-button {
-		display: none;
-	}
-	[data-cognigy-webchat-root] [data-cognigy-webchatX].webchat {
-		height: 100vh;
-		width: 100vw;
-		position: fixed;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		border-radius: 0;
-	}
-	[data-cognigy-webchat-root] [data-cognigy-webchat].webchat .webchat-header-close-button {
-		display: none;
-	}
-    */
-
-	/* This is Cognigy's standard 'Centred Demo' styling: */
-	html,
-	body {
-		height: 100%;
-		padding: 0;
-		margin: 0;
-	}
-	@media (min-width: 576px) {
-		.center-webchat [data-cognigy-webchat] {
-			position: relative;
-
-			left: 0;
+	<title>Cognigy Webchat</title>
+	<style>
+		/* Three styles make Webchat full-screen: */
+		/*
+		[data-cognigy-webchat-root] [data-cognigy-webchat-toggle].webchat-toggle-button {
+			display: none;
+		}
+		[data-cognigy-webchat-root] [data-cognigy-webchatX].webchat {
+			height: 100vh;
+			width: 100vw;
+			position: fixed;
 			top: 0;
-			right: 0;
+			left: 0;
 			bottom: 0;
-
-			height: 780px;
-
-			margin: auto;
+			right: 0;
+			border-radius: 0;
 		}
-		.center-webchat [data-cognigy-webchat-toggle] {
-			display: none !important;
+		[data-cognigy-webchat-root] [data-cognigy-webchat].webchat .webchat-header-close-button {
+			display: none;
 		}
-	}
-  </style>
+		*/
+		
+		/* This is Cognigy's standard 'Centred Demo' styling: */
+		html,
+		body {
+			height: 100%;
+			padding: 0;
+			margin: 0;
+		}
+		@media (min-width: 576px) {
+			.center-webchat [data-cognigy-webchat] {
+				position: relative;
+		
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+		
+				height: 780px;
+		
+				margin: auto;
+			}
+			.center-webchat [data-cognigy-webchat-toggle] {
+				display: none !important;
+			}
+		}
+    </style>
 </head>
 <body>
   <!-- <script src="https://github.com/Cognigy/Webchat/releases/latest/download/webchat.js"></script> -->

@@ -8,9 +8,6 @@
 	<style>
 		/* Three styles make Webchat full-screen: */
 		/*
-		[data-cognigy-webchat-root] [data-cognigy-webchat-toggle].webchat-toggle-button {
-			display: none;
-		}
 		[data-cognigy-webchat-root] [data-cognigy-webchatX].webchat {
 			height: 100vh;
 			width: 100vw;
@@ -21,10 +18,16 @@
 			right: 0;
 			border-radius: 0;
 		}
+		*/
+
+		/* Hide the Close and Minimise affordances in the header: */
+		[data-cognigy-webchat-root] [data-cognigy-webchat-toggle].webchat-toggle-button {
+			display: none;
+		}
 		[data-cognigy-webchat-root] [data-cognigy-webchat].webchat .webchat-header-close-button {
 			display: none;
 		}
-		*/
+
 		
 		/* This is Cognigy's standard 'Centred Demo' styling: */
 		html,

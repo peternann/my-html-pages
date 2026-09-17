@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Cognigy Webchat</title>
+  <style>
+	<!-- Three styles make Webchat full-screen: -->
+	[data-cognigy-webchat-root] [data-cognigy-webchat-toggle].webchat-toggle-button {
+		display: none;
+	}
+	[data-cognigy-webchat-root] [data-cognigy-webchat].webchat {
+		height: 100vh;
+		width: 100vw;
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		border-radius: 0;
+	}
+	[data-cognigy-webchat-root] [data-cognigy-webchat].webchat .webchat-header-close-button {
+		display: none;
+	}
+  </style>
+</head>
+<body>
+  <!-- <script src="https://github.com/Cognigy/Webchat/releases/latest/download/webchat.js"></script> -->
+  <!-- <script src="../build/webchat3.js"></script> -->
+  <script src="https://webchat-trial.cognigy.ai/build/webchat3.js"></script>
+  <script>
+	let options = {
+		userId: 'PeterN',
+		sessionId: 'session-' + Date.now(),
+		settings: {
+			homeScreen: {
+				enabled: false
+			},
+			behavior: {
+				enableTypingIndicator: false,
+				messageDelay: 0,
+			},
+			startBehavior: {
+				startBehavior: "injection",
+				getStartedPayload: "GET_STARTED",
+			},
+			embeddingConfiguration: {
+				awaitEndpointConfig: true,
+			},
+		},
+	};
+	var urlParameters = {};
+	window.location.search.slice(1).split("&")
+		.map(function (parameter) {
+			var key = parameter.substr(0, parameter.indexOf("="));
+			var value = parameter.substr(parameter.indexOf("=") + 1);
+			urlParameters[key] = decodeURI(value);
+		});
+	if (urlParameters.userId)
+	    options.userId = urlParameters.userId;
+	if (urlParameters.sessionId) {
+	    options.sessionId = urlParameters.sessionId;
+		/* This magic clobbers Cognigy Webchat session memory:
+		/ When the user refreshes the page in Loggy McLogger - We don't want the history - It's big! */
+		for (let i = window.localStorage.length - 1; i >= 0; i--) {
+			const key = localStorage.key(i);
+			key.startsWith('["webchat-client"') && localStorage.removeItem(key);
+		}
+	}
+
+	initWebchat( "https://endpoint-trial.cognigy.ai/fb250eeeb90167d29dbaf530890b9c053a68a12239a1d01036884c230694564a", options)
+		.then(webchat => {
+			window.webchat = webchat;
+			webchat.open();
+		});
+		
+  </script>
+</body>
+</html>

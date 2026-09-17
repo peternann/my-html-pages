@@ -75,7 +75,7 @@
 			webchat.registerAnalyticsService(event => {
 				if (event.type === "webchat/outgoing-message") {
 					console.log("outgoing message text: " + event.payload.text);
-					setTimeout(() => document.querySelector(".webchat-input-message-input")?.blur();, 1000);
+					setTimeout(() => document.querySelector(".webchat-input-message-input")?.blur(), 1000);
 				}
 			});
 		});

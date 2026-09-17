@@ -72,6 +72,13 @@
 		.then(webchat => {
 			window.webchat = webchat;
 			webchat.open();
+			webchat.registerAnalyticsService(event => {
+				if (event.type === "webchat/outgoing-message") {
+					console.log("outgoing message text: " + event.payload.text);
+					/* input.blur(); */
+					document.activeElement?.blur()
+				}
+			});
 		});
 		
   </script>
